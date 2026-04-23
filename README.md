@@ -8,7 +8,7 @@ A document-aware chatbot project built with:
 - Ollama (Mistral) for LLM responses
 
 ## Features
-- Upload PDF and DOCX files
+- Upload Document and DOCX files
 - Auto chunking and embedding generation
 - Per-chatbot vector index storage
 - API key based chatbot ownership check
@@ -24,8 +24,12 @@ frentend/
   main.py               # Streamlit UI
 requirements.txt        # Python dependencies
 db/
-  chatbots.json         # Chatbot ownership map (runtime)
-  <chatbot-id>/         # FAISS index folders (runtime)
+  users.json            # User auth + chatbot metadata
+  usage.json            # API usage logs by chatbot_id
+  users/
+    <username>/
+      chatbots/
+        <chatbot-id>/   # FAISS index folders (runtime)
 ```
 
 ## Prerequisites

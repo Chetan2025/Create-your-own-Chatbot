@@ -9,6 +9,8 @@ import threading
 import shutil
 from datetime import datetime, timedelta, timezone
 from typing import Optional
+
+from dotenv import load_dotenv
 from langchain_community.vectorstores import FAISS
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
@@ -18,6 +20,9 @@ DB_ROOT = os.path.join(PROJECT_ROOT, "db")
 USERS_FILE = os.path.join(DB_ROOT, "users.json")
 USAGE_FILE = os.path.join(DB_ROOT, "usage.json")
 USER_DATA_ROOT = os.path.join(DB_ROOT, "users")
+
+load_dotenv()
+
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434/api/generate")
 OLLAMA_TIMEOUT = int(os.getenv("OLLAMA_TIMEOUT", "180"))
 MAX_CONTEXT_CHARS = int(os.getenv("MAX_CONTEXT_CHARS", "3000"))
